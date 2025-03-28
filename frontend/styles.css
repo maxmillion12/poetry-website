@@ -1,0 +1,162 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    margin: 50;
+    padding: 0;
+    background-color: #f5f2e6;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #e6e2e2;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    background: url('parchment.jpg') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.hero-content {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    color: #2d2a26;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #4a4a4a;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.explore-btn {
+    background: #d1a172;
+    color: white;
+}
+
+.join-btn {
+    background: #1a1a1a;
+    color: white;
+}
+
+/* Featured Poems */
+.featured-poems {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.poem-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.poem-card {
+    background: #fff;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Bird Animation */
+.bird {
+    position: absolute;
+    top: 50px;
+    left: -100px;
+    width: 80px;
+    height: 80px;
+    background: url('bird.png') no-repeat;
+    background-size: cover;
+    animation: fly 8s infinite linear;
+}
+
+@keyframes fly {
+    0% { left: -100px; top: 50px; }
+    50% { left: 50%; top: 30px; }
+    100% { left: 100%; top: 50px; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .poem-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .poem-cards {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 80%;
+        text-align: center;
+    }
+}

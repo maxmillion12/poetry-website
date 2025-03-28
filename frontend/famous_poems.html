@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Famous Poems</title>
+        <link rel="stylesheet" href="famous_poems.css">
+    </head>
+    <body>
+    
+        <h1>Famous Poems</h1>
+    
+        <input type="text" id="searchPoem" placeholder="Search for a poem...">
+    
+        <div id="poems-list"></div>
+    
+        <button id="loadMore">Load More</button>
+    
+        <script src="famous_poems.js"></script>
+    
+    </body>
+    </html>
+    
+    </section>
+
+    <!-- 🔹 Favorites Section -->
+    <section id="favorites-section">
+        <h2>Favorites ❤️ (<span id="favorite-count">0</span>)</h2>
+        <select id="sort-favorites">
+            <option value="title">Sort by Title</option>
+            <option value="author">Sort by Author</option>
+        </select>
+        <div id="favorites-list">
+            <p>No favorite poems yet.</p>
+        </div>
+        <button id="clear-favorites">Clear Favorites</button>
+    </section>
+
+    <!-- 🔹 JavaScript Files -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const favoriteButtons = document.querySelectorAll(".favorite-btn");
+            const favoriteList = document.getElementById("favorites-list");
+            const favoriteCount = document.getElementById("favorite-count");
+            const clearFavoritesButton = document.getElementById("clear-favorites");
+
+            let favorites = JSON.parse(sessionStorage.getItem("favorites")) || [];
+
+            // Function to update favorites display
+            function updateFavorites() {
+                favoriteList.innerHTML = favorites.length 
+                    ? favorites.map(poem => `<p><strong>${poem.title}</strong> by ${poem.author}</p>`).join("")
+                    : "<p>No favorite poems yet.</p>";
+
+                favoriteCount.textContent = favorites.length;
+                sessionStorage.setItem("favorites", JSON.stringify(favorites));
+            }
+
+            // Add to favorites
+            favoriteButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const title = this.dataset.title;
+                    const author = this.dataset.author;
+
+                    const poemExists = favorites.some(poem => poem.title === title && poem.author === author);
+                    if (!poemExists) {
+                        favorites.push({ title, author });
+                        updateFavorites();
+                    }
+                });
+            });
+
+            // Clear favorites
+            clearFavoritesButton.addEventListener("click", () => {
+                favorites = [];
+                updateFavorites();
+            });
+
+            // Load saved favorites on page load
+            updateFavorites();
+        });
+    </script>
+
+</body>
+</html>

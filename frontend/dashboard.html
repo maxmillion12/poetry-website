@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Feathers Of Poetry</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="profile.html">My Profile</a>
+            <a href="submitPoem.html">Submit Poem</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="recent-poems">
+            <h2>Your Recent Poems</h2>
+            <div id="poems-list">
+                <p>Loading your poems...</p>
+            </div>
+        </section>
+
+        <section id="notifications">
+            <h2>Notifications</h2>
+            <ul id="notifications-list">
+                <p>Fetching notifications...</p>
+            </ul>
+        </section>
+    </main>
+
+    <!-- JavaScript for fetching user dashboard data -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            try {
+                // Fetch user dashboard data
+                const response = await fetch("/api/user/dashboard", {
+                    method: "GET",
+                    credentials: "include", // Ensures session/cookies work
+                });
+
+                const data = await response.json();
+                if (data.error) {
+                    console.error("Dashboard Error:", data.error);
+                    return;
+                }
+
+                // Display Recent Poems
+                const poemsList = document.getElementById("poems-list");
+                poemsList.innerHTML = ""; // Clear placeholder text
+                if (data.poems.length === 0) {
+                    poemsList.innerHTML = "<p>No poems submitted yet.</p>";
+                } else {
+                    data.poems.forEach(poem => {
+                        const poemDiv = document.createElement("div");
+                        poemDiv.classList.add("poem-card");
+                        poemDiv.innerHTML = `<strong>${poem.title}</strong><p>${poem.content}</p>`;
+                        poemsList.appendChild(poemDiv);
+                    });
+                }
+
+                // Display Notifications
+                const notificationsList = document.getElementById("notifications-list");
+                notificationsList.innerHTML = "";
+                if (data.notifications.length === 0) {
+                    notificationsList.innerHTML = "<p>No notifications yet.</p>";
+                } else {
+                    data.notifications.forEach(notification => {
+                        const li = document.createElement("li");
+                        li.textContent = notification.message;
+                        notificationsList.appendChild(li);
+                    });
+                }
+
+            } catch (error) {
+                console.error("Error fetching dashboard data:", error);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Center Heading */
+h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Search Input */
+#searchPoem {
+  display: block;
+  margin-right: 0 auto 0px auto;
+  width: 10%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#searchPoem:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Poem List Container */
+#poems-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Individual Poem Card */
+.poem-item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.poem-item:hover {
+  transform: scale(1.02);
+}
+
+/* Poem Title */
+.poem-item h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Read More Link */
+.poem-item a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.poem-item a:hover {
+  text-decoration: underline;
+}
+
+/* Load More Button */
+#loadMore {
+  display: block;
+  margin-left: 20px;
+  padding: 5px 0px;
+  font-size: 16px;
+  background-color: none;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+#loadMore:hover {
+  background-color: none;
+}
+
+/* Favorites Section */
+#favorites-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+/* Favorite Items */
+#favorites-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+#favorites-container ul li {
+  padding: 8px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Favorite Button */
+.favorite-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+/* Heart Color When Favorited */
+.favorite-btn.favorited {
+  color: black;
+  font-weight: bold;
+}
+
+.favorite-btn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-color: red;
+}
+
+/* Clear Favorites Button */
+#clear-favorites {
+  display: block;
+  width: 10%;
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: brown;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+#clear-favorites:hover {
+  background-color: black;
+}

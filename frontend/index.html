@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feathers Of Poetry</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <img src="logo.png" class="logo">
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="explore.html">Explore</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+                <input type="text" placeholder="Search..." class="search-bar">
+                <a href="login.html" class="btn">Login</a>
+                <a href="signup.html" class="btn">Register</a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Explore Poems</h1>
+            <p>Discover the beauty of words woven into poetry.</p>
+            <div class="hero-buttons">
+                <a href="explore.html" class="btn explore-btn">Explore</a>
+                <a href="signup.html" class="btn join-btn">Join Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Poems Section -->
+    <section class="featured-poems">
+        <h2>Featured Poems</h2>
+        <div class="poem-cards">
+            <div class="poem-card">
+                <h3>Sonnet</h3>
+                <p>By William Shakespeare</p>
+            </div>
+            <div class="poem-card">
+                <h3>Romance</h3>
+                <p>By Edgar Allan Poe</p>
+            </div>
+            <div class="poem-card">
+                <h3>Tempting Poets</h3>
+                <p>Community Picks</p>
+            </div>
+            <div class="poem-card">
+                <h3>Recount & Peets</h3>
+                <p>New Discoveries</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poetry Submission Form -->
+    <section id="submitPoemSection">
+        <div class="container">
+            <h2>Submit Your Poem</h2>
+            <form id="submitPoemForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="poemTitle">Poem Title:</label>
+                    <input type="text" id="poemTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="poemContent">Your Poem:</label>
+                    <textarea id="poemContent" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Poem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- View Classic Poems Button -->
+    <a href="famous_poems.html" class="classic-poems-btn">View Classic Poems 📜 </a>
+
+    <!-- Bird Animation -->
+    <div class="bird"></div>
+
+    <script src="script.js"></script>
+    <script src="submitPoem.js"></script>
+
+</body>
+</html>

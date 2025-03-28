@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Submit Poem</title>
+  </head>
+  <body>
+    <h1>Submit Your Poem</h1>
+    <form id="poetryForm">
+      <input type="text" id="title" name="title" placeholder="Poem Title" required>
+      <textarea id="content" name="content" placeholder="Write your poem here..." required></textarea>
+      <button type="submit">Submit Poem</button>
+    </form>
+
+    <script>
+      document.getElementById('poetryForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent form from submitting the usual way
+
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+
+        try {
+          const response = await fetch('http://localhost:3000/api/poetry/create', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'  // Send data as JSON
+            },
+            body: JSON.stringify({ title, content })  // Convert to JSON
+          });
+
+          console.log("Server Response:", response); // Log the entire response object
+
+          const result = await response.json(); // Parse the response as JSON
+          console.log("Parsed JSON:", result); // Log the parsed result
+
+          alert(JSON.stringify(result));  // Show the response in an alert
+        } catch (error) {
+          console.error("Error:", error); // Log any errors
+          alert("Error: " + error);
+        }
+      });
+    </script>
+  </body>
+</html>

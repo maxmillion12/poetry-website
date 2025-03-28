@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Poem</title>
+    <link rel="stylesheet" href="submitPoem.css">
+</head>
+<body>
+    <header>
+        <h1>Submit Your Poem</h1>
+    </header>
+
+    <section id="submitPoemSection">
+        <div class="container">
+
+            <form id="submitPoemForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="poemTitle">Poem Title:</label>
+                    <input type="text" id="poemTitle" required>
+                    <select id="titleFontStyle" onchange="changeFontStyle('poemTitle')">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Verdana">Verdana</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="poemContent">Your Poem:</label>
+                    <textarea id="poemContent" required></textarea>
+                    <select id="contentFontStyle" onchange="changeFontStyle('poemContent')">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Verdana">Verdana</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="categorySearch">Search Categories:</label>
+                    <input type="text" id="categorySearch" placeholder="Search categories..." onkeyup="filterCategories()">
+                </div>
+
+                <div class="form-group">
+                    <label for="categories">Select Categories:</label>
+                    <select id="categories" size="5" multiple></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectedCategories">Selected Categories:</label>
+                    <input type="text" id="selectedCategories" readonly placeholder="Selected categories will appear here...">
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Poem</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="submitPoem.js"></script>
+</body>
+</html>

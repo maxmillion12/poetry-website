@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Feathers Of Poetry</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <header>
+        <h1>My Profile</h1>
+        <nav>
+            <div class="logo">Feathers Of Poetry</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section id="profile-section">
+        <div class="profile-header">
+            <img id="profile-pic" src="default-profile.png" alt="Profile Picture">
+            <input type="file" id="upload-pic" accept="image/*" hidden>
+            <button id="change-pic-btn">Change Picture</button>
+            <h2 id="username">Loading...</h2>
+            <p id="user-bio">Fetching bio...</p>
+            <button id="edit-profile">Edit Profile</button>
+        </div>
+
+        <div id="edit-profile-form" class="hidden">
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" placeholder="Enter new username">
+
+            <label for="new-bio">Bio:</label>
+            <textarea id="new-bio" placeholder="Enter new bio"></textarea>
+
+            <button id="save-profile">Save Changes</button>
+            <button id="cancel-edit">Cancel</button>
+        </div>
+
+        <div class="profile-stats">
+            <p><strong>Followers:</strong> <span id="followers-count">0</span></p>
+            <p><strong>Following:</strong> <span id="following-count">0</span></p>
+            <p><strong>Likes:</strong> <span id="likes-count">0</span></p>
+            <p><strong>Badges:</strong> <span id="badges-count">0</span></p>
+        </div>
+
+        <div class="profile-actions">
+            <a href="submitPoem.html" class="submit-poem-btn">Submit New Poem</a>
+        </div>
+<!-- Social Media Links Section -->
+<div id="social-links">
+    <h3>Connect with Me</h3>
+    <div class="social-icons">
+        <a id="twitter-link" href="#" target="_blank"><img src="assets/twitter-icon.png" alt="Twitter"></a>
+        <a id="instagram-link" href="#" target="_blank"><img src="assets/instagram-icon.png" alt="Instagram"></a>
+        <a id="facebook-link" href="#" target="_blank"><img src="assets/facebook-icon.png" alt="Facebook"></a>
+    </div>
+</div>
+
+        <!-- My Poems Section -->
+        <h3>My Poems</h3>
+        <div id="poems-list">
+            <p>Loading your poems...</p>
+        </div>
+
+        <!-- Favorite Poems Section -->
+        <h3>Favorite Poems</h3>
+        <div id="favorites-list">
+            <p>No favorite poems yet.</p>
+        </div>
+
+        <!-- Badges & Achievements -->
+        <h3>Badges & Achievements</h3>
+        <div id="badges-section">
+            <p>No badges yet.</p>
+        </div>
+    </section>
+
+    <script src="profile.js"></script> <!-- Profile page script -->
+    
+    <!-- Edit Profile Modal -->
+<div id="edit-profile-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="edit-profile-form">
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" name="new-username">
+
+            <label for="new-bio">Bio:</label>
+            <textarea id="new-bio" name="new-bio"></textarea>
+
+            <label for="new-profile-pic">Profile Picture:</label>
+            <input type="file" id="new-profile-pic" accept="image/*">
+
+            <label for="new-twitter">Twitter:</label>
+<input type="url" id="new-twitter" name="new-twitter" placeholder="https://twitter.com/username">
+
+<label for="new-instagram">Instagram:</label>
+<input type="url" id="new-instagram" name="new-instagram" placeholder="https://instagram.com/username">
+
+<label for="new-facebook">Facebook:</label>
+<input type="url" id="new-facebook" name="new-facebook" placeholder="https://facebook.com/username">
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
